@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  padding-top: 25vh;
+  background: #333;
+}
+
+section {
+  width: 100%;
+  height: 50vh;
+  background: #000;
+  position: relative;
+  overflow: hidden;
+}
+section img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+aside {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  font-size: 100px;
+  color: #fff;
+}
+
+/*# sourceMappingURL=style_org.css.map */

@@ -16,8 +16,9 @@
 
 const num = 200;
 const section = document.querySelector('section');
+const aside = document.querySelector('aside');
+const loadingNum = document.querySelector('aside p span');
 const imgs = createImgs(section, num);
-console.log(imgs);
 
 // activation 함수 추가 : 인수로 유사배열, 활성화 순번 받음
 // 순번에 대한 요소만 보임처리
@@ -44,7 +45,23 @@ function createImgs(target, num) {
 
 		target.append(img);
 	}
-	return target.querySelectorAll('img');
+	const imgs = target.querySelectorAll('img');
+	let count = 0;
+	imgs.forEach((img) => {
+		//해당 돔에 수반되는 소스이미지가 로딩 완료시 실행되는 이벤트
+		img.onload = () => {
+			count++;
+			const percent = parseInt((count / num) * 100);
+			loadingNum.innerText = count;
+			console.log('현재 로딩된 소스 이미지', count);
+			if (count == num) {
+				//동저으로 만들어진 img요소의 소스 이미지가 랜더링 완료된 시람
+				console.log('모든 소스이미지 로딩 완료');
+				aside.remove();
+			}
+		};
+	});
+	return imgs;
 }
 
 // 인수로 그룹유사배열, 활성화 순번을 받아서
